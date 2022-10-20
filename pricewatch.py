@@ -33,8 +33,8 @@ def getPricewatch():
     for item in r.json():
         brandList = []
         brandList.append({
-            "en": route['brand']['en']
-            "tc": route['brand']['zh-Hant']
+            "en": route['brand']['en'],
+            "tc": route['brand']['zh-Hant'],
             "sc": route['brand']['zh-Hans']
         })
     
