@@ -42,7 +42,8 @@ def getPricewatch():
             "code": route['code'],
             "brand": brandList
         })
-        
     with open(PRICEWATCH_ITEMLIST, 'w') as f:
     f.write(json.dumps(itemList, ensure_ascii=False))
+    
+getPricewatch()
     
