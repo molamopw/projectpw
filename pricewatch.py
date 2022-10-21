@@ -49,14 +49,28 @@ for item in r.json():
         "sc": item['cat1Name']['zh-Hans']
     }
     
+    cat2 = {
+        "en": item['cat2Name']['en'],
+        "tc": item['cat2Name']['zh-Hant'],
+        "sc": item['cat2Name']['zh-Hans']
+    }
     
+    cat3 = {
+        "en": item['cat3Name']['en'],
+        "tc": item['cat3Name']['zh-Hant'],
+        "sc": item['cat3Name']['zh-Hans']
+    }
+
+    prices = item['prices']
 
     itemList.append({
         "code": item['code'],
         "brand": brand,
         "name": name,
-        "cat1": cat1
-        
+        "cat1": cat1,
+        "cat2": cat2,
+        "cat3": cat3,
+        "prices": prices
     })
     
 with open(PRICEWATCH_ITEMLIST, 'w') as f:
