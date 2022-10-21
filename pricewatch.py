@@ -21,10 +21,10 @@ def emitRequest(url):
 PRICEWATCH_ITEMLIST = 'pricewatch_itemlist.json'
 PRICEWATCH_MAP_ITEMLIST = 'pricewatch_map_itemlist.json'
 
-if path.isfile(PRICEWATCH_LIST):
-  os.remove(PRICEWATCH_LIST)
-if path.isfile(PRICEWATCH_MAP_LIST):
-  os.remove(PRICEWATCH_MAP_LIST)
+if path.isfile(PRICEWATCH_ITEMLIST):
+  os.remove(PRICEWATCH_ITEMLIST)
+if path.isfile(PRICEWATCH_MAP_ITEMLIST):
+  os.remove(PRICEWATCH_MAP_ITEMLIST)
 
 itemList = {}
 r = emitRequest('https://online-price-watch.consumer.org.hk/opw/opendata/pricewatch.json')
