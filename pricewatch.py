@@ -76,7 +76,7 @@ for item in r.json():
         #prices_map[item_offer['supermarketCode']]['offer'] = item_offer
 
     for item_price in prices:
-        item_price['offer'] = offers_map[item_price['supermarketCode']]
+        #item_price['offer'] = offers_map[item_price['supermarketCode']]
         prices_map[item_price['supermarketCode']] = item_price
         
 
@@ -87,7 +87,8 @@ for item in r.json():
         "cat1": cat1,
         "cat2": cat2,
         "cat3": cat3,
-        "prices": prices_map
+        "prices": prices_map,
+        "offers": offers_map
     })
     
     
