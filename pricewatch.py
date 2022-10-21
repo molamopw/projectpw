@@ -62,6 +62,9 @@ for item in r.json():
     }
 
     prices = item['prices']
+    prices_map = {}
+    for item_price in prices.json():
+        prices_map[item_price['supermarketCode']] = item_price
 
     itemList.append({
         "code": item['code'],
@@ -70,8 +73,10 @@ for item in r.json():
         "cat1": cat1,
         "cat2": cat2,
         "cat3": cat3,
-        "prices": prices
+        "prices": prices_map
     })
+    
+    
     
 with open(PRICEWATCH_ITEMLIST, 'w') as f:
   f.write(json.dumps(itemList, ensure_ascii=False))
