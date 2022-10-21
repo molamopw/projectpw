@@ -44,6 +44,6 @@ for item in r.json():
     })
     
 with open(PRICEWATCH_ITEMLIST, 'w') as f:
-f.write(json.dumps(itemList, ensure_ascii=False))
+  f.write(json.dumps(itemList, ensure_ascii=False))
     
     
