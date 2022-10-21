@@ -64,11 +64,21 @@ for item in r.json():
     prices = item['prices']
     offers = item['offers']
     prices_map = {}
-    for item_price in prices:
-        prices_map[item_price['supermarketCode']] = item_price
-
+    offers_map = {}
+    
     for item_offer in offers:
-        prices_map[item_offer['supermarketCode']] = item_offer
+        offers_map[item_offer['supermarketCode']] = {
+            "supermarketCode": item_offer['supermarketCode'],
+            "en": item_offer['en'],
+            "tc": item_offer['zh-Hant'],
+            "sc": item_offer['zh-Hans']
+        }
+        #prices_map[item_offer['supermarketCode']]['offer'] = item_offer
+
+    for item_price in prices:
+        item_price['offer'] = offers_map[item_price['supermarketCode']]
+        prices_map[item_price['supermarketCode']] = item_price
+        
 
     itemList.append({
         "code": item['code'],
