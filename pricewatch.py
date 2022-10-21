@@ -31,12 +31,11 @@ r = emitRequest('https://online-price-watch.consumer.org.hk/opw/opendata/pricewa
 itemList = []
 
 for item in r.json():
-    brandList = []
-    brandList.append({
+    brandList = {
         "en": item['brand']['en'],
         "tc": item['brand']['zh-Hant'],
         "sc": item['brand']['zh-Hans']
-    })
+    }
 
     itemList.append({
         "code": item['code'],
