@@ -63,7 +63,7 @@ for item in r.json():
 
     prices = item['prices']
     prices_map = {}
-    for item_price in prices.json():
+    for item_price in prices:
         prices_map[item_price['supermarketCode']] = item_price
 
     itemList.append({
