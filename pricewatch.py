@@ -33,13 +33,13 @@ itemList = []
 for item in r.json():
     brandList = []
     brandList.append({
-        "en": route['brand']['en'],
-        "tc": route['brand']['zh-Hant'],
-        "sc": route['brand']['zh-Hans']
+        "en": item['brand']['en'],
+        "tc": item['brand']['zh-Hant'],
+        "sc": item['brand']['zh-Hans']
     })
 
     itemList.append({
-        "code": route['code'],
+        "code": item['code'],
         "brand": brandList
     })
     
