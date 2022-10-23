@@ -105,7 +105,6 @@ for item in r.json():
         "offers": offers_map,
         "supermarketCode": supermarketCode
     }
-}
     
     
     
