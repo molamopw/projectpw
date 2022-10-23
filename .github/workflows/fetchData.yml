@@ -32,6 +32,7 @@ jobs:
         with:
             file-path: |
               pricewatch_itemlist.json
+              pricewatch_map_itemlist.json
               
             commit-msg: Update resources
             github-token: ${{ secrets.ACCESS_TOKEN }}
