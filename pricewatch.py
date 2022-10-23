@@ -26,7 +26,7 @@ if path.isfile(PRICEWATCH_ITEMLIST):
 if path.isfile(PRICEWATCH_MAP_ITEMLIST):
   os.remove(PRICEWATCH_MAP_ITEMLIST)
 
-itemList = {}
+itemListMap = {}
 r = emitRequest('https://online-price-watch.consumer.org.hk/opw/opendata/pricewatch.json')
 itemList = []
 
@@ -80,6 +80,7 @@ for item in r.json():
         #item_price['offer'] = offers_map[item_price['supermarketCode']]
         prices_map[item_price['supermarketCode']] = item_price
         supermarketCode.append(item_price['supermarketCode'])
+        
 
     itemList.append({
         "code": item['code'],
@@ -93,9 +94,25 @@ for item in r.json():
         "supermarketCode": supermarketCode
     })
     
+    itemListMap[item['code']] = {
+        "code": item['code'],
+        "brand": brand,
+        "name": name,
+        "cat1": cat1,
+        "cat2": cat2,
+        "cat3": cat3,
+        "prices": prices_map,
+        "offers": offers_map,
+        "supermarketCode": supermarketCode
+    }
+}
+    
     
     
 with open(PRICEWATCH_ITEMLIST, 'w') as f:
   f.write(json.dumps(itemList, ensure_ascii=False))
-    
+with open(PRICEWATCH_MAP_ITEMLIST, 'w') as f:
+  f.write(json.dumps(itemListMap, ensure_ascii=False))
+
+
     
